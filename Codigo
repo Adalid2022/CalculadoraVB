@@ -1,0 +1,203 @@
+Public Class frmCalculadora
+    Dim v1 As Integer
+    Dim v2 As Integer
+    Dim operador As String
+    Dim memoria As Integer
+    Private Sub frmCalculadora_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+
+    Private Sub btnUno_Click(sender As Object, e As EventArgs) Handles btnUno.Click
+        If tbxSalida.Text = "0" Then
+            tbxSalida.Text = "1"
+        Else
+            tbxSalida.Text = tbxSalida.Text + "1"
+        End If
+    End Sub
+
+    Private Sub btnDos_Click(sender As Object, e As EventArgs) Handles btnDos.Click
+        If tbxSalida.Text = "0" Then
+            tbxSalida.Text = "2"
+        Else
+            tbxSalida.Text = tbxSalida.Text + "2"
+        End If
+    End Sub
+
+    Private Sub btnTres_Click(sender As Object, e As EventArgs) Handles btnTres.Click
+        If tbxSalida.Text = "0" Then
+            tbxSalida.Text = "3"
+        Else
+            tbxSalida.Text = tbxSalida.Text + "3"
+        End If
+    End Sub
+
+    Private Sub btnCuatro_Click(sender As Object, e As EventArgs) Handles btnCuatro.Click
+        If tbxSalida.Text = "0" Then
+            tbxSalida.Text = "4"
+        Else
+            tbxSalida.Text = tbxSalida.Text + "4"
+        End If
+    End Sub
+
+    Private Sub btnCinco_Click(sender As Object, e As EventArgs) Handles btnCinco.Click
+        If tbxSalida.Text = "0" Then
+            tbxSalida.Text = "5"
+        Else
+            tbxSalida.Text = tbxSalida.Text + "5"
+        End If
+    End Sub
+
+    Private Sub btnSeis_Click(sender As Object, e As EventArgs) Handles btnSeis.Click
+        If tbxSalida.Text = "0" Then
+            tbxSalida.Text = "6"
+        Else
+            tbxSalida.Text = tbxSalida.Text + "6"
+        End If
+    End Sub
+
+    Private Sub btnSiete_Click(sender As Object, e As EventArgs) Handles btnSiete.Click
+        If tbxSalida.Text = "0" Then
+            tbxSalida.Text = "7"
+        Else
+            tbxSalida.Text = tbxSalida.Text + "7"
+        End If
+    End Sub
+
+    Private Sub btnOcho_Click(sender As Object, e As EventArgs) Handles btnOcho.Click
+        If tbxSalida.Text = "0" Then
+            tbxSalida.Text = "8"
+        Else
+            tbxSalida.Text = tbxSalida.Text + "8"
+        End If
+    End Sub
+
+    Private Sub btnNueve_Click(sender As Object, e As EventArgs) Handles btnNueve.Click
+        If tbxSalida.Text = "0" Then
+            tbxSalida.Text = "9"
+        Else
+            tbxSalida.Text = tbxSalida.Text + "9"
+        End If
+    End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        If tbxSalida.Text = "0" Then
+            tbxSalida.Text = "0"
+        Else
+            tbxSalida.Text = tbxSalida.Text + "0"
+        End If
+    End Sub
+
+    Private Sub btnSuma_Click(sender As Object, e As EventArgs) Handles btnSuma.Click
+        operador = "+"
+        v1 = Integer.Parse(tbxSalida.Text)
+        tbxAyuda.Text = tbxSalida.Text + operador
+        tbxSalida.Text = 0
+    End Sub
+
+    Private Sub btnResta_Click(sender As Object, e As EventArgs) Handles btnResta.Click
+        operador = "-"
+        v1 = Integer.Parse(tbxSalida.Text)
+        tbxAyuda.Text = tbxSalida.Text + operador
+        tbxSalida.Text = 0
+
+    End Sub
+
+    Private Sub btnProducto_Click(sender As Object, e As EventArgs) Handles btnProducto.Click
+        operador = "*"
+        v1 = Integer.Parse(tbxSalida.Text)
+        tbxAyuda.Text = tbxSalida.Text + operador
+        tbxSalida.Text = 0
+    End Sub
+
+    Private Sub btnDivision_Click(sender As Object, e As EventArgs) Handles btnDivision.Click
+        operador = "/"
+        v1 = Integer.Parse(tbxSalida.Text)
+        tbxAyuda.Text = tbxSalida.Text + operador
+        tbxSalida.Text = 0
+
+    End Sub
+
+    Private Sub btnIgual_Click(sender As Object, e As EventArgs) Handles btnIgual.Click
+        v2 = Integer.Parse(tbxSalida.Text)
+        Dim ayuda
+        If operador = "+" Then
+            ayuda = Str(v1) + " + " + Str(v2) + ""
+            tbxAyuda.Text = ayuda
+            tbxSalida.Text = v1 + v2
+        ElseIf (operador = "-") Then
+            ayuda = Str(v1) + " - " + Str(v2) + ""
+            tbxAyuda.Text = ayuda
+            tbxSalida.Text = v1 - v2
+
+        ElseIf (operador = "*") Then
+            ayuda = Str(v1) + " * " + Str(v2) + ""
+            tbxAyuda.Text = ayuda
+            tbxSalida.Text = v1 * v2
+
+        ElseIf (operador = "^") Then
+            ayuda = Str(v1) + " ^ " + Str(v2) + ""
+            tbxAyuda.Text = ayuda
+            tbxSalida.Text = Math.Pow(v1, v2)
+
+        ElseIf (operador = "/") Then
+            ayuda = Str(v1) + " / " + Str(v2) + ""
+            tbxAyuda.Text = ayuda
+            If v2 = 0 Then
+                tbxSalida.Text = "Error"
+            Else
+                tbxSalida.Text = v1 / v2
+            End If
+        End If
+    End Sub
+
+    Private Sub btnBorrarTodo_Click(sender As Object, e As EventArgs) Handles btnBorrarTodo.Click
+        tbxSalida.Text = 0
+        tbxAyuda.Text = ""
+    End Sub
+
+    Private Sub btnBorrar_Click(sender As Object, e As EventArgs) Handles btnBorrar.Click
+        tbxSalida.Text = tbxSalida.Text.Substring(0, tbxSalida.Text.Length - 1)
+    End Sub
+
+    Private Sub btnPorcentaje_Click(sender As Object, e As EventArgs) Handles btnPorcentaje.Click
+        v2 = Integer.Parse(tbxSalida.Text)
+        Dim ayuda
+        If operador = "*" Then
+            ayuda = Str(v1) + " * " + Str(v2) + "%"
+            tbxAyuda.Text = ayuda
+            tbxSalida.Text = (v1 * v2) / 100
+        Else
+            tbxSalida.Text = "Error"
+        End If
+    End Sub
+
+    Private Sub btnCuadrado_Click(sender As Object, e As EventArgs) Handles btnCuadrado.Click
+        v1 = Integer.Parse(tbxSalida.Text)
+        tbxAyuda.Text = tbxSalida.Text + " ^ 2"
+        'tbxSalida.Text = tbxSalida.Text * tbxSalida.Text 'Opcion1
+        tbxSalida.Text = Math.Pow(tbxSalida.Text, 2) 'Opcion2
+    End Sub
+
+    Private Sub btnRaizC_Click(sender As Object, e As EventArgs) Handles btnRaizC.Click
+        v1 = Integer.Parse(tbxSalida.Text)
+        tbxAyuda.Text = " Raíz Cuadrada( " + tbxSalida.Text + " )"
+        tbxSalida.Text = Math.Round(Math.Sqrt(tbxSalida.Text), 3)
+    End Sub
+
+    Private Sub btnMemoria_Click(sender As Object, e As EventArgs) Handles btnMemoria.Click
+        
+    End Sub
+
+    Private Sub btnExponente_Click(sender As Object, e As EventArgs) Handles btnExponente.Click
+        operador = "^"
+        v1 = Integer.Parse(tbxSalida.Text)
+        tbxAyuda.Text = tbxSalida.Text + operador
+        tbxSalida.Text = 0
+    End Sub
+
+    Private Sub btnLogaritmo_Click(sender As Object, e As EventArgs) Handles btnLogaritmo.Click
+        v1 = Integer.Parse(tbxSalida.Text)
+        tbxAyuda.Text = " Logaritmo B10( " + tbxSalida.Text + " )"
+        tbxSalida.Text = Math.Round(Math.Log10(tbxSalida.Text), 3)
+    End Sub
+End Class
